@@ -1,0 +1,41 @@
+let mongoose=require("mongoose");
+let detailSchema=new mongoose.Schema({
+    img1:{
+        type:String,
+        required:true,
+    },
+    img2:{
+        type:String,
+        required:true
+    },
+    img3:{
+        type:String,
+        required:false
+    },
+    img4:{
+        type:String,
+        required:false
+    },
+    des:{
+        type:String,
+        required:true 
+    },
+    color:{
+        type:String,
+        required:true 
+    },
+    size:{
+        type:String,
+        required:true 
+    },
+    product_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true
+    },
+    stock:{
+        type:Number,
+        required:true
+    }
+},{timestamps:true,versionKey:false});
+let ProductDetailModel=mongoose.model('product_details',detailSchema);
+module.exports=ProductDetailModel

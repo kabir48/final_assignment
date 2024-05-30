@@ -1,0 +1,62 @@
+let mongoose =require("mongoose");
+let productData=new mongoose.Schema({
+    title:{
+        type:String,
+        required:true
+    },
+    shortDes:{
+        type:String,
+        required:false
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    discount_type:{
+        type:String,
+        required:false
+    },
+    discount:{
+        type:Number,
+        required:false
+    },
+    total:{
+        type:Number,
+        required:false
+    },
+    brand_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true
+    },
+    category_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true
+    },
+
+    image:{
+        type:String,
+        required:true
+    },
+    status:{
+        type:String,
+        default:"active"
+    },
+    star:{
+        type:Number,
+        default:0
+    },
+    stock:{
+        type:Number,
+        default:0
+    }
+    ,remark:{
+        type:String,
+        required:false
+    }
+    ,publicId:{
+        type:String,
+        required:false,
+    }
+},{timestamps:true,versionKey:false});
+let ProductModel=mongoose.model('products',productData);
+module.exports=ProductModel
